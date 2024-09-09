@@ -1,17 +1,19 @@
 package br.com.gerenciadordeprodutos.api.model;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 @Entity
-@Table(name = "fornecedores")
+@Table(name = "produto")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Fornecedor implements Serializable {
+public class Produto implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)//pra gerar id em sequencia
@@ -20,11 +22,15 @@ public class Fornecedor implements Serializable {
     @Column(name = "nome", nullable = false, length = 100)
     private String nome;
 
-    @Column(name = "CNPJ", nullable = false, unique = true, length = 15)
-    private String CNPJ;
+    @Column(name = "preco", nullable = false)
+    private BigDecimal preco;
 
-    @Column(name = "email", nullable = false, length = 100)
-    private String email;
+    @Column(name = "descricao", length = 255)
+    private String descricao;
 
+    @ManyToOne //muitos produtos um fornecedor
+    @JoinColumn(name = "fornecedor id", nullable = false)
+    private Fornecedor fornecedor;
 
+    //fazer criado em e atualizado em
 }

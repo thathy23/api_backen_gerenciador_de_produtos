@@ -1,9 +1,8 @@
 package br.com.gerenciadordeprodutos.api.dtos;
 
-public record FornecedorCriadoResponse(
+public record ProdutoCriadoResponse(
         String mensagem,
 
-        Long idFornecedor
-
+        Long idProduto
 ) {
 }

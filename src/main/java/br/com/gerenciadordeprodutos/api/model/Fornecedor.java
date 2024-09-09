@@ -35,7 +35,7 @@ public class Fornecedor implements Serializable {
     @Column(name = "criado_em", nullable = false)
     private LocalDateTime criadoEm;
 
-    @Column(name ="atualizado_em", nullable = false)
+    @Column(name ="atualizado_em")
     private LocalDateTime atualizadoEm;
 
 }
